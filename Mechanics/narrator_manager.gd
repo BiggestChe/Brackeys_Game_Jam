@@ -136,12 +136,11 @@ const LINES: Dictionary = {
 		"text": "There's a key on that desk. Wake him up and he'll take it back, so, y'know. Tiptoe. Do a little tiptoe.",
 		"audio": "res://audio/narrator/room4_intro_2.ogg",
 	},
- 
 }
 
 const TRUE_LINES: Dictionary = {
 	"narrator_reveal_1": {
-		"text": "Hey... HEY! Stop fiddling the bar real quick. It's me, the REAL narrator",
+		"text": "Hey... HEY! Stop fiddling that bar real quick. It's me, the REAL narrator",
 		"audio": "res://audio/narrator/true_reveal_1.ogg",
 	},
 }
