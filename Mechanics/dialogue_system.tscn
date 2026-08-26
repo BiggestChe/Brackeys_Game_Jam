@@ -1,3 +1,21 @@
 [gd_scene format=3 uid="uid://cxtd0l7apatw0"]
 
-[node name="Node2D" type="Node2D" unique_id=14286406]
+[ext_resource type="Script" uid="uid://b2ewf2esj3f54" path="res://Mechanics/narrator_manager.gd" id="1_7jbh2"]
+[ext_resource type="Script" uid="uid://b30w3kwcwakkl" path="res://Mechanics/textbox.gd" id="2_fnq3j"]
+
+[node name="Dialogue" type="Node2D" unique_id=14286406]
+script = ExtResource("1_7jbh2")
+
+[node name="Text" type="Control" parent="." unique_id=682694363]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Text" unique_id=566475201]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 97.0
+offset_right = 163.0
+offset_bottom = 120.0
+script = ExtResource("2_fnq3j")

@@ -1,3 +1,32 @@
 [gd_scene format=3 uid="uid://i4r2e15c728r"]
 
+[ext_resource type="Script" uid="uid://bn3bxmvi4pkgl" path="res://Mechanics/draggable.gd" id="1_cmoim"]
+[ext_resource type="Texture2D" uid="uid://byoh1ua1soea" path="res://icon.svg" id="2_y48af"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(127, 126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(1085, 110)
+
 [node name="Node2D" type="Node2D" unique_id=1338811614]
+
+[node name="DraggablePhysicsBody2D" type="RigidBody2D" parent="." unique_id=1456940225]
+position = Vector2(148, 194)
+script = ExtResource("1_cmoim")
+max_throw_speed = 15.0
+drag_smoothness = 10.0
+metadata/_custom_type_script = "uid://bn3bxmvi4pkgl"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggablePhysicsBody2D" unique_id=1930597056]
+position = Vector2(1.5, 2)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="DraggablePhysicsBody2D" unique_id=1938047973]
+texture = ExtResource("2_y48af")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=965994222]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=318681199]
+position = Vector2(544.5, 583)
+shape = SubResource("RectangleShape2D_yf5fn")
