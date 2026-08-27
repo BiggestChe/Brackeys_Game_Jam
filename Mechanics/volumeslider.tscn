@@ -1,3 +1,44 @@
 [gd_scene format=3 uid="uid://dbvpasfeppgl5"]
 
-[node name="Node2D" type="Node2D" unique_id=280488164]
+[ext_resource type="Script" uid="uid://c85uhiq1hxp45" path="res://Mechanics/volumeslider.gd" id="1_fel7d"]
+[ext_resource type="Texture2D" uid="uid://byoh1ua1soea" path="res://icon.svg" id="2_jhrla"]
+
+[node name="VolumeSlider" type="Node2D" unique_id=280488164]
+
+[node name="Control" type="Control" parent="." unique_id=592793077]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_fel7d")
+collapsed_width = 10.0
+
+[node name="Icon" type="TextureButton" parent="Control" unique_id=436500391]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("2_jhrla")
+
+[node name="Slider" type="Control" parent="Control" unique_id=1748419727]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 44.0
+offset_bottom = 41.0
+
+[node name="Label" type="Label" parent="Control/Slider" unique_id=907997947]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 197.0
+offset_right = 135.0
+offset_bottom = 220.0
+text = "dffgdfdsfs"
+
+[node name="VSlider" type="VSlider" parent="Control/Slider" unique_id=533311395]
+layout_mode = 0
+offset_left = 74.99999
+offset_top = 411.0
+offset_right = 90.99999
+offset_bottom = 687.0
+rotation = 3.1450834

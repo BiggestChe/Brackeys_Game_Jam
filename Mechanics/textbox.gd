@@ -24,11 +24,18 @@ func _on_subtitle_requested(new_text: String, speaker: String) -> void:
 	else:
 		remove_theme_color_override("font_color")
 
+	#change these values to create a smoother text to word transition
 	var duration: float = max(new_text.length() / chars_per_second, 0.01)
 	_tween = create_tween()
 	_tween.tween_property(self, "visible_ratio", 1.0, duration)
 
-func _on_subtitle_cleared(_speaker: String) -> void:
+func _on_subtitle_cleared(speaker: String) -> void:
+	if speaker == "true_narrator" and _tween and _tween.is_running():
+		_tween.kill()
+		visible_ratio = 1.0
+		await get_tree().create_timer(0.6).timeout
+		visible = false
+		return
 	if _tween:
 		_tween.kill()
 	visible = false

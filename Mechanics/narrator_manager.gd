@@ -140,7 +140,8 @@ const LINES: Dictionary = {
 
 const TRUE_LINES: Dictionary = {
 	"narrator_reveal_1": {
-		"text": "Hey... HEY! Stop fiddling that bar real quick. It's me, the REAL narrator",
+		"text": "Hey... HEY! Stop fiddling that bar real quick. 
+		It's me, the REAL narrator",
 		"audio": "res://audio/narrator/true_reveal_1.ogg",
 	},
 }
