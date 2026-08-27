@@ -22,8 +22,7 @@ texture_normal = ExtResource("2_jhrla")
 [node name="Slider" type="Control" parent="Control" unique_id=1748419727]
 layout_mode = 1
 anchors_preset = 0
-offset_left = 4.0
-offset_top = 1.0
+offset_left = 2.0
 offset_right = 44.0
 offset_bottom = 41.0
 
