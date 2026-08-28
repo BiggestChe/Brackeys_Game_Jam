@@ -5,9 +5,7 @@ extends Control
 @export var collapsed_width: float = 0.0
 @export var animation_duration: float = 0.25
  
-## Optional: for puzzles like "mute to a specific number to reveal something".
-## Set to -1 to disable. Fires target_percentage_reached once, the first
-## time the slider lands within 1% of this value.
+
 @export var target_reveal_percentage: float = 8.0
 signal target_percentage_reached(value: float)
  

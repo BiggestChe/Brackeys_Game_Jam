@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://bni7ditsjfgfs"]
+
+[ext_resource type="Script" uid="uid://sulqrd2jhu6r" path="res://Rooms/start_scene.gd" id="1_uhf8n"]
+[ext_resource type="Script" uid="uid://cfnm6o17x3te2" path="res://Rooms/start_button.gd" id="2_xdivn"]
+[ext_resource type="Script" uid="uid://du0vo7q6f3s5c" path="res://Rooms/credits.gd" id="3_1m2tp"]
+[ext_resource type="PackedScene" uid="uid://i4r2e15c728r" path="res://Mechanics/drag_drop_test.tscn" id="4_cibro"]
+[ext_resource type="Script" uid="uid://b2k80agn63nyh" path="res://letterslot.gd" id="5_cibro"]
+
+[node name="StartScene" type="Node2D" unique_id=2037216318]
+script = ExtResource("1_uhf8n")
+
+[node name="Buttons" type="Control" parent="." unique_id=1312872668]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StartButton3" type="Button" parent="Buttons" unique_id=1245822540]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 227.0
+offset_right = 184.0
+offset_bottom = 297.0
+script = ExtResource("2_xdivn")
+
+[node name="Label" type="Label" parent="Buttons/StartButton3" unique_id=1620684616]
+layout_mode = 0
+offset_left = 3.0
+offset_right = 43.0
+offset_bottom = 23.0
+text = "Start"
+
+[node name="Settings" type="Button" parent="Buttons" unique_id=881081452]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 460.0
+offset_right = 188.0
+offset_bottom = 530.0
+
+[node name="Credits" type="Button" parent="Buttons" unique_id=1826663465]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 336.0
+offset_right = 185.0
+offset_bottom = 406.0
+script = ExtResource("3_1m2tp")
+
+[node name="CreditsPopUp" parent="Buttons/Credits" unique_id=1338811614 instance=ExtResource("4_cibro")]
+position = Vector2(125, -327)
+
+[node name="Label" type="Label" parent="Buttons/Credits" unique_id=1908814907]
+layout_mode = 0
+offset_right = 131.0
+offset_bottom = 58.0
+text = "Credits"
+
+[node name="LetterSlot5" type="Node2D" parent="." unique_id=471262389 groups=["letter_slots"]]
+position = Vector2(139, 238)
+script = ExtResource("5_cibro")
+slot_index = 4
+accepted_letter = "A"
+metadata/_custom_type_script = "uid://b2k80agn63nyh"
+
+[node name="LetterSlot4" type="Node2D" parent="." unique_id=774203711 groups=["letter_slots"]]
+position = Vector2(112, 238)
+script = ExtResource("5_cibro")
+slot_index = 3
+accepted_letter = "A"
+metadata/_custom_type_script = "uid://b2k80agn63nyh"
+
+[node name="LetterSlot3" type="Node2D" parent="." unique_id=809055135 groups=["letter_slots"]]
+position = Vector2(88, 238)
+script = ExtResource("5_cibro")
+slot_index = 2
+accepted_letter = "A"
+metadata/_custom_type_script = "uid://b2k80agn63nyh"
+
+[node name="LetterSlot2" type="Node2D" parent="." unique_id=200013400 groups=["letter_slots"]]
+position = Vector2(60, 238)
+script = ExtResource("5_cibro")
+slot_index = 1
+accepted_letter = "A"
+metadata/_custom_type_script = "uid://b2k80agn63nyh"
+
+[node name="LetterSlot" type="Node2D" parent="." unique_id=1737854155 groups=["letter_slots"]]
+position = Vector2(43, 238)
+script = ExtResource("5_cibro")
+accepted_letter = "A"
+metadata/_custom_type_script = "uid://b2k80agn63nyh"

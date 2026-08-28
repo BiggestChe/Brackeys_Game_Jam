@@ -1,32 +1,138 @@
 [gd_scene format=3 uid="uid://i4r2e15c728r"]
 
-[ext_resource type="Script" uid="uid://bn3bxmvi4pkgl" path="res://Mechanics/draggable.gd" id="1_cmoim"]
+[ext_resource type="Script" uid="uid://cjawi65j6dv3t" path="res://letter.gd" id="2_6baga"]
 [ext_resource type="Texture2D" uid="uid://byoh1ua1soea" path="res://icon.svg" id="2_y48af"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(127, 126)
+[ext_resource type="Script" uid="uid://b2k80agn63nyh" path="res://letterslot.gd" id="3_y48af"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-size = Vector2(1085, 110)
+size = Vector2(1525, 110)
 
-[node name="Node2D" type="Node2D" unique_id=1338811614]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
+size = Vector2(24.375, 24.5)
 
-[node name="DraggablePhysicsBody2D" type="RigidBody2D" parent="." unique_id=1456940225]
-position = Vector2(148, 194)
-script = ExtResource("1_cmoim")
-max_throw_speed = 15.0
-drag_smoothness = 10.0
-metadata/_custom_type_script = "uid://bn3bxmvi4pkgl"
+[node name="CreditsPopUp" type="Node2D" unique_id=1338811614]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggablePhysicsBody2D" unique_id=1930597056]
-position = Vector2(1.5, 2)
-shape = SubResource("RectangleShape2D_g4v7s")
+[node name="Floor" type="StaticBody2D" parent="." unique_id=965994222]
 
-[node name="Sprite2D" type="Sprite2D" parent="DraggablePhysicsBody2D" unique_id=1938047973]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=318681199]
+position = Vector2(554, 632)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="LetterSlot" type="Node2D" parent="." unique_id=1960074882 groups=["letter_slots"]]
+position = Vector2(255, 114)
+script = ExtResource("3_y48af")
+accepted_letter = "A"
+metadata/_custom_type_script = "uid://b2k80agn63nyh"
+
+[node name="Popup" type="Control" parent="." unique_id=467831328]
+light_mask = 0
+z_index = -1
+layout_mode = 3
+anchors_preset = 0
+offset_left = 78.0
+offset_top = 143.0
+offset_right = 722.0
+offset_bottom = 435.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Popup" unique_id=2042016769]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -21.0
+offset_right = 908.0
+offset_bottom = 330.0
+mouse_filter = 2
 texture = ExtResource("2_y48af")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=965994222]
+[node name="Letter4" type="RigidBody2D" parent="." unique_id=392696490]
+position = Vector2(138, 155)
+script = ExtResource("2_6baga")
+throw_force_multiplier = 0.5
+max_throw_speed = 150.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=318681199]
-position = Vector2(544.5, 583)
-shape = SubResource("RectangleShape2D_yf5fn")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Letter4" unique_id=161748873]
+shape = SubResource("RectangleShape2D_57qmd")
+
+[node name="Label" type="Label" parent="Letter4/CollisionShape2D" unique_id=1163511569]
+offset_left = -3.0
+offset_top = -12.0
+offset_right = 13.0
+offset_bottom = 12.0
+text = "J"
+metadata/_edit_use_anchors_ = true
+
+[node name="Letters" type="Node2D" parent="." unique_id=431833429]
+position = Vector2(19, -1)
+
+[node name="Letter" type="RigidBody2D" parent="Letters" unique_id=1734549104]
+position = Vector2(151, 158)
+collision_layer = 2
+script = ExtResource("2_6baga")
+throw_force_multiplier = 0.5
+max_throw_speed = 150.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Letters/Letter" unique_id=2064548445]
+position = Vector2(1.625, 0)
+shape = SubResource("RectangleShape2D_57qmd")
+
+[node name="Label" type="Label" parent="Letters/Letter/CollisionShape2D" unique_id=644755146]
+offset_left = -3.0
+offset_top = -12.0
+offset_right = 9.0
+offset_bottom = 12.0
+text = "I"
+metadata/_edit_use_anchors_ = true
+
+[node name="Letter2" type="RigidBody2D" parent="Letters" unique_id=675826854]
+position = Vector2(196, 157)
+collision_layer = 2
+script = ExtResource("2_6baga")
+throw_force_multiplier = 0.5
+max_throw_speed = 150.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Letters/Letter2" unique_id=1638795474]
+shape = SubResource("RectangleShape2D_57qmd")
+
+[node name="Label" type="Label" parent="Letters/Letter2/CollisionShape2D" unique_id=638146808]
+offset_left = -11.0
+offset_top = -13.0
+offset_right = 9.1875
+offset_bottom = 11.0
+text = "M"
+metadata/_edit_use_anchors_ = true
+
+[node name="Letter4" type="RigidBody2D" parent="Letters" unique_id=55605398]
+position = Vector2(241, 158)
+collision_layer = 2
+script = ExtResource("2_6baga")
+throw_force_multiplier = 0.5
+max_throw_speed = 150.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Letters/Letter4" unique_id=337897530]
+shape = SubResource("RectangleShape2D_57qmd")
+
+[node name="Label" type="Label" parent="Letters/Letter4/CollisionShape2D" unique_id=729235677]
+offset_left = -8.0
+offset_top = -15.0
+offset_right = 7.0
+offset_bottom = 8.0
+text = "M"
+metadata/_edit_use_anchors_ = true
+
+[node name="Letter5" type="RigidBody2D" parent="Letters" unique_id=119392589]
+position = Vector2(281, 156)
+collision_layer = 2
+script = ExtResource("2_6baga")
+throw_force_multiplier = 0.5
+max_throw_speed = 150.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Letters/Letter5" unique_id=19275671]
+shape = SubResource("RectangleShape2D_57qmd")
+
+[node name="Label" type="Label" parent="Letters/Letter5/CollisionShape2D" unique_id=1054890084]
+offset_left = -4.0
+offset_top = -11.75
+offset_right = 15.0
+offset_bottom = 12.25
+text = "Y"
+metadata/_edit_use_anchors_ = true
