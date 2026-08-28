@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://dfnw7nepue6ek"]
 
-[ext_resource type="PackedScene" uid="uid://b5t0jpmy7uekb" path="res://Player/player.tscn" id="1_8lrhh"]
 [ext_resource type="Script" uid="uid://b0fy5rtcrplcp" path="res://Mechanics/brightnesslider.gd" id="1_8yncp"]
 [ext_resource type="Script" uid="uid://bn3bxmvi4pkgl" path="res://Mechanics/draggable.gd" id="1_kgc72"]
+
+[sub_resource type="Environment" id="Environment_mo16l"]
+background_mode = 3
+adjustment_enabled = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mo16l"]
 size = Vector2(30.8125, 17.625)
@@ -18,28 +21,30 @@ radius = 14.035668
 [node name="Brightness Slider" type="Node2D" unique_id=1211855279]
 script = ExtResource("1_8yncp")
 
-[node name="Player" parent="." unique_id=278496576 instance=ExtResource("1_8lrhh")]
-position = Vector2(385, 206)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=13663338]
+environment = SubResource("Environment_mo16l")
 
-[node name="DraggablePhysicsBody2D" type="RigidBody2D" parent="." unique_id=286842113]
-position = Vector2(533, 502)
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1289891789]
+
+[node name="DraggablePhysicsBody2D" type="RigidBody2D" parent="CanvasLayer" unique_id=286842113]
 gravity_scale = 0.0
 lock_rotation = true
+linear_damp = 1.0
 script = ExtResource("1_kgc72")
 max_throw_speed = 0.0
 drag_smoothness = 100.0
 metadata/_custom_type_script = "uid://bn3bxmvi4pkgl"
 
-[node name="Grab Handle" type="CollisionShape2D" parent="DraggablePhysicsBody2D" unique_id=343938452]
+[node name="Grab Handle" type="CollisionShape2D" parent="CanvasLayer/DraggablePhysicsBody2D" unique_id=343938452]
 position = Vector2(-284, 35)
 shape = SubResource("RectangleShape2D_mo16l")
 one_way_collision_direction = Vector2(0, -1)
 
-[node name="Sprite2D" type="Sprite2D" parent="DraggablePhysicsBody2D/Grab Handle" unique_id=629018504]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/DraggablePhysicsBody2D/Grab Handle" unique_id=629018504]
 scale = Vector2(30.125021, 16.999996)
 texture = SubResource("PlaceholderTexture2D_avisv")
 
-[node name="HSlider" type="HSlider" parent="DraggablePhysicsBody2D" unique_id=2093373450]
+[node name="HSlider" type="HSlider" parent="CanvasLayer/DraggablePhysicsBody2D" unique_id=2093373450]
 custom_minimum_size = Vector2(300, 8)
 anchors_preset = 8
 anchor_left = 0.5
@@ -60,11 +65,11 @@ min_value = 0.001
 value = 0.001
 metadata/_edit_use_anchors_ = true
 
-[node name="barCollider" type="CollisionShape2D" parent="DraggablePhysicsBody2D" unique_id=1674042419]
+[node name="barCollider" type="CollisionShape2D" parent="CanvasLayer/DraggablePhysicsBody2D" unique_id=1674042419]
 shape = SubResource("RectangleShape2D_avisv")
 
-[node name="handleCollider" type="CollisionShape2D" parent="DraggablePhysicsBody2D" unique_id=1137102739]
+[node name="handleCollider" type="CollisionShape2D" parent="CanvasLayer/DraggablePhysicsBody2D" unique_id=1137102739]
 position = Vector2(-284, 0)
 shape = SubResource("CircleShape2D_p4ttq")
 
-[connection signal="value_changed" from="DraggablePhysicsBody2D/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/DraggablePhysicsBody2D/HSlider" to="." method="_on_h_slider_value_changed"]

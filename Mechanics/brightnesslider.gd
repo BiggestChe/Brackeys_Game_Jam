@@ -1,8 +1,9 @@
 extends Node2D
 
-@onready var h_slider: HSlider = $DraggablePhysicsBody2D/HSlider
-@onready var bar_collider: CollisionShape2D = $DraggablePhysicsBody2D/barCollider
-@onready var handle_collider: CollisionShape2D = $DraggablePhysicsBody2D/handleCollider
+@onready var h_slider: HSlider = $CanvasLayer/DraggablePhysicsBody2D/HSlider
+@onready var bar_collider: CollisionShape2D = $CanvasLayer/DraggablePhysicsBody2D/barCollider
+@onready var handle_collider: CollisionShape2D = $CanvasLayer/DraggablePhysicsBody2D/handleCollider
+@onready var world_environment: WorldEnvironment = $WorldEnvironment
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,6 +17,8 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_h_slider_value_changed(value: float) -> void:
+	world_environment.environment.adjustment_brightness = 1 - (value / 100)
+	
 	var px_size = h_slider.size * h_slider.scale
 	var t = Transform2D(0, 	Vector2(value / 105, 1), 0, Vector2((px_size.x * ((value / 105) - 1)) / 2, 0))
 	bar_collider.transform = t
