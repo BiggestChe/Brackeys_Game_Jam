@@ -12,7 +12,7 @@ func _input(event: InputEvent) -> void:
 			custom_hide()
 		else:
 			custom_show()
-				
+
 func custom_hide() -> void:
 	hide()
 	for item in settings_list:

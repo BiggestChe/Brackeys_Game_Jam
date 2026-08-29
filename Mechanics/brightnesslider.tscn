@@ -65,14 +65,14 @@ pivot_offset = Vector2(150, 8)
 size_flags_horizontal = 4
 size_flags_vertical = 1
 min_value = 0.001
-value = 0.001
+value = 100.0
 metadata/_edit_use_anchors_ = true
 
 [node name="barCollider" type="CollisionShape2D" parent="DraggablePhysicsBody2D" unique_id=1674042419]
 shape = SubResource("RectangleShape2D_avisv")
 
 [node name="handleCollider" type="CollisionShape2D" parent="DraggablePhysicsBody2D" unique_id=1137102739]
-position = Vector2(-284, 0)
+position = Vector2(284, 0)
 shape = SubResource("CircleShape2D_p4ttq")
 
 [node name="Sprite2D" type="Sprite2D" parent="DraggablePhysicsBody2D" unique_id=1636298286]

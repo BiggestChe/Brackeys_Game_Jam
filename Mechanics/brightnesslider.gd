@@ -8,11 +8,12 @@ extends CanvasLayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var px_size = h_slider.size * h_slider.scale
-	var t = Transform2D(0, 	Vector2(0.001, 1), 0, Vector2(-px_size.x / 2, 0))
+	var value = h_slider.value
+	var t = Transform2D(0, 	Vector2(value / 105, 1), 0, Vector2((px_size.x * ((value / 105) - 1)) / 2, 0))
 	bar_collider.transform = t
 
 func _on_h_slider_value_changed(value: float) -> void:
-	world_environment.environment.adjustment_brightness = 1 - (value / 100)
+	world_environment.environment.adjustment_brightness = value / 100
 	
 	var px_size = h_slider.size * h_slider.scale
 	var t = Transform2D(0, 	Vector2(value / 105, 1), 0, Vector2((px_size.x * ((value / 105) - 1)) / 2, 0))
