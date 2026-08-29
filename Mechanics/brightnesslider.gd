@@ -20,3 +20,6 @@ func _on_h_slider_value_changed(value: float) -> void:
 	
 	t = Transform2D(0, 	Vector2(px_size.x * (((value + 3) / 106) - .5), 0))
 	handle_collider.transform = t
+	
+func get_canvas_item() -> Node2D:
+	return $DraggablePhysicsBody2D

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dygyspd4qhxgj"]
 
 [ext_resource type="Script" uid="uid://dojy7a2j5ejk5" path="res://Player/settings.gd" id="1_56qbe"]
+[ext_resource type="PackedScene" uid="uid://dfnw7nepue6ek" path="res://Mechanics/brightnesslider.tscn" id="2_56qbe"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mjnia"]
 
@@ -9,16 +10,19 @@ size = Vector2(1118, 252)
 
 [node name="Settings Menu" type="Area2D" unique_id=1937140763]
 collision_layer = 4
-collision_mask = 12
+collision_mask = 4
 script = ExtResource("1_56qbe")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1373240789]
-position = Vector2(575.625, 293.625)
+position = Vector2(568.625, 143.625)
 scale = Vector2(1117.25, 255.24998)
 texture = SubResource("PlaceholderTexture2D_mjnia")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2095747]
-position = Vector2(576.25, 294.25)
+position = Vector2(569.25, 144.25)
 shape = SubResource("RectangleShape2D_p4ttq")
 
+[node name="Brightness Slider" parent="." unique_id=1277356107 instance=ExtResource("2_56qbe")]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
