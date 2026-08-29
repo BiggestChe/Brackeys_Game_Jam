@@ -1,3 +1,40 @@
 [gd_scene format=3 uid="uid://cagshymbqpbw2"]
 
-[node name="Node2D" type="Node2D" unique_id=465036065]
+[ext_resource type="PackedScene" uid="uid://b5t0jpmy7uekb" path="res://Player/player.tscn" id="1_foo3d"]
+[ext_resource type="Script" uid="uid://g0tecmmksv36" path="res://Rooms/room_1.gd" id="1_le2oi"]
+[ext_resource type="PackedScene" uid="uid://dygyspd4qhxgj" path="res://Player/settings.tscn" id="1_tn0c6"]
+[ext_resource type="PackedScene" uid="uid://dunkbg4edhsd4" path="res://Mechanics/player_input_slot.tscn" id="2_o1ta2"]
+[ext_resource type="PackedScene" uid="uid://khd73o215b4d" path="res://Mechanics/player_input_button.tscn" id="3_tn0c6"]
+
+[node name="Room1" type="Node2D" unique_id=465036065]
+script = ExtResource("1_le2oi")
+
+[node name="Settings Menu" parent="." unique_id=1937140763 instance=ExtResource("1_tn0c6")]
+position = Vector2(3, -1)
+
+[node name="Player" parent="." unique_id=278496576 instance=ExtResource("1_foo3d")]
+position = Vector2(4, 112)
+
+[node name="Jump Slot" parent="." unique_id=1436715565 instance=ExtResource("2_o1ta2")]
+position = Vector2(557, 118)
+action = "Jump"
+
+[node name="Left Slot" parent="." unique_id=1496027582 instance=ExtResource("2_o1ta2")]
+position = Vector2(373, 119)
+action = "Left"
+
+[node name="Right Slot" parent="." unique_id=1504471385 instance=ExtResource("2_o1ta2")]
+position = Vector2(736, 122)
+action = "Right"
+
+[node name="Space Button" parent="." unique_id=972805943 instance=ExtResource("3_tn0c6")]
+position = Vector2(570, 210)
+key = "Space"
+
+[node name="A Button" parent="." unique_id=544133410 instance=ExtResource("3_tn0c6")]
+position = Vector2(735, 122)
+key = "A"
+
+[node name="D Button" parent="." unique_id=379369237 instance=ExtResource("3_tn0c6")]
+position = Vector2(371, 118)
+key = "D"

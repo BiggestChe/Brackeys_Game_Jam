@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dygyspd4qhxgj"]
 
 [ext_resource type="Script" uid="uid://dojy7a2j5ejk5" path="res://Player/settings.gd" id="1_56qbe"]
-[ext_resource type="PackedScene" uid="uid://dfnw7nepue6ek" path="res://Mechanics/brightnesslider.tscn" id="2_56qbe"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mjnia"]
 
@@ -22,7 +21,6 @@ texture = SubResource("PlaceholderTexture2D_mjnia")
 position = Vector2(569.25, 144.25)
 shape = SubResource("RectangleShape2D_p4ttq")
 
-[node name="Brightness Slider" parent="." unique_id=1277356107 instance=ExtResource("2_56qbe")]
-
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://khd73o215b4d"]
+
+[ext_resource type="Script" uid="uid://bn3bxmvi4pkgl" path="res://Mechanics/draggable.gd" id="1_t6kje"]
+[ext_resource type="Script" uid="uid://ccrb24tjagqrr" path="res://Mechanics/player_input_button.gd" id="1_ujimj"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ujimj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4ttq"]
+size = Vector2(70, 70)
+
+[node name="PlayerInputButton" type="Node2D" unique_id=544133410 groups=["PlayerInputButton"]]
+script = ExtResource("1_ujimj")
+
+[node name="DraggablePhysicsBody2D" type="RigidBody2D" parent="." unique_id=1058375048 groups=["PlayerInputButton"]]
+collision_layer = 4
+collision_mask = 4
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 1.0
+script = ExtResource("1_t6kje")
+max_throw_speed = 0.0
+drag_smoothness = 100.0
+metadata/_custom_type_script = "uid://bn3bxmvi4pkgl"
+
+[node name="Sprite2D" type="Sprite2D" parent="DraggablePhysicsBody2D" unique_id=1218924279]
+scale = Vector2(70, 70)
+texture = SubResource("PlaceholderTexture2D_ujimj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggablePhysicsBody2D" unique_id=809382679]
+shape = SubResource("RectangleShape2D_p4ttq")
+
+[node name="Label" type="Label" parent="DraggablePhysicsBody2D" unique_id=907302893]
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 50
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
